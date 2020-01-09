@@ -1,0 +1,17 @@
+.module{
+    //height: 5vh;
+    padding: 5%;
+    background-image:linear-gradient(to right bottom,
+                                     rgba($color-red-light, 1), 
+                                     rgba($color-red-dark, 1));
+      &__container{
+
+      }
+      &__img-box{
+
+    }
+    &__text-box{
+        color: $color-white;
+    }
+
+}

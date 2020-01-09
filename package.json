@@ -2,7 +2,7 @@
   "name": "@stella1013/vizmod",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server",
@@ -20,8 +20,10 @@
   "homepage": "https://github.com/stella1013/VizMod#readme",
   "devDependencies": {
     "clean-webpack-plugin": "^3.0.0",
+    "css-loader": "^3.4.1",
     "node-sass": "^4.13.0",
     "sass-loader": "^8.0.0",
+    "style-loader": "^1.1.2",
     "ts-loader": "^6.2.1",
     "typescript": "^3.7.4",
     "webpack": "^4.41.5",

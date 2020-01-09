@@ -5,9 +5,88 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <script type="module" src="app.js"></script>
+    <script type="module" src="dist/bundle.js"></script>
 </head>
 <body>
-    <div id="app"></div>
+    <div id="app">
+        <!--
+        <div class='module'>
+            <div class='module__container'>
+              <div class='module__img-box'>
+                <img src='./assets/icons/Feedback_2x2.png' class='thumbnail-image' alt='Feedback' />
+              </div>
+              <div class='module__text-box'>
+                <h2 class='module-title'>Feedback</h2>
+                <p class='module-text'>
+                  Please take a moment to let us know how we are performing.
+                </p>
+              </div>
+            </div>
+          </div>
+-->
+          <div class='grid'>
+            <div class='row'>
+                <div class='col-1-of-2'>
+                  <ModuleComp />
+                </div>
+                <div class='col-1-of-2'>
+                  <ModuleComp />
+                </div>
+              </div>
+              <div class='row'>
+                <div class='col-1-of-3'>
+                  <ModuleComp />
+                </div>
+                <div class='col-1-of-3'>
+                  <ModuleComp />
+                </div>
+                <div class='col-1-of-3'>
+                  <ModuleComp />
+                </div>
+              </div>
+              <div class='row'>
+                <div class='col-1-of-3'>
+                  <ModuleComp />
+                </div>
+                <div class='col-2-of-3'>
+                  <ModuleComp />
+                </div>
+              </div>
+              <div class='row'>
+                <div class='col-1-of-4'>
+                  <ModuleComp />
+                </div>
+                <div class='col-2-of-4'>
+                  <ModuleComp />
+                </div>
+                <div class='col-3-of-4'>
+                  <ModuleComp />
+                </div>
+                <div class='col-4-of-4'>
+                  <ModuleComp />
+                </div>
+              </div>
+              <div class='row'>
+                <div class='col-1-of-4'>
+                  <ModuleComp />
+                </div>
+                <div class='col-1-of-4'>
+                  <ModuleComp />
+                </div>
+                <div class='col-2-of-4'>
+                  <ModuleComp />
+                </div>
+              </div>
+              <div class='row'>
+                <div class='col-1-of-4'>
+                  <ModuleComp />
+                </div>
+                <div class='col-2-of-4'>
+                  <ModuleComp />
+                </div>
+              </div>
+              
+            </div>
+    </div>
 </body>
 </html>

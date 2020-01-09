@@ -17,17 +17,24 @@ module.exports = {
                 exclude: /node_modules/
             },
             {
-                test: /\.s[ac]ss$/i,
+                // Apply rule for .sass, .scss or .css files
+                test: /\.(sa|sc|c)ss$/,
+                // Set loaders to transform files.
+                // Loaders are applying from right to left(!)
+                // The first loader will be applied after others
                 use: [
                   // Creates `style` nodes from JS strings
                   'style-loader',
                   // Translates CSS into CommonJS
+                  // This loader resolves url() and @imports inside CSS
                   'css-loader',
+
                   // Compiles Sass to CSS
+                  // First we transform SASS to standard CSS
                   'sass-loader',
                 ],
               },
         ]
     },
-    resolve: { extensions: ['.ts', '.js'] }
+    resolve: { extensions: ['.ts', '.js', '.scss'] }
 }
