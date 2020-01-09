@@ -1,0 +1,31 @@
+{
+  "name": "@stella1013/vizmod",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server",
+    "build": "webpack --config webpack.config.prod.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stella1013/VizMod.git"
+  },
+  "author": "Veronica Preston <relativelydarling@gmail.com> (http://www.veronicapreston@gmail.com)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stella1013/VizMod/issues"
+  },
+  "homepage": "https://github.com/stella1013/VizMod#readme",
+  "devDependencies": {
+    "clean-webpack-plugin": "^3.0.0",
+    "node-sass": "^4.13.0",
+    "sass-loader": "^8.0.0",
+    "ts-loader": "^6.2.1",
+    "typescript": "^3.7.4",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.10.1"
+  }
+}
