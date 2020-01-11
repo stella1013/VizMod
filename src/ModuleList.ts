@@ -1,14 +1,24 @@
-import { Component } from "./Component";
-import { Module } from "webpack";
+import { Module } from './Module';
 
-export class ModuleList implements Component {
-    private title:string;
+export class ModuleList{
     private listOfModules:Module[] = [];
+    private xhttp:XMLHttpRequest;
 
-    constructor(title:string){
-        this.title = title;
+    constructor(){
+        this.xhttp = new XMLHttpRequest();
+        this.xhttp.onreadystatechange = () => {
+            if (this.xhttp.readyState == 4 && this.xhttp.status == 200) {
+            this.render(this.xhttp);
+            }
+        };
+        this.xhttp.open("GET", "build.xml", true);
+        this.xhttp.send();
+        
     }
-    render = () => {
-
+    
+    render = (xml:any) => {
+        var xmlDoc = xml.responseXML;
+        //let text = xmlDoc.getElementsByTagName("title")[0].childNodes[0].nodeValue;
+        console.log(xml);
     }
 } 

@@ -1,5 +1,6 @@
-import {ModuleObj, Module} from './models/Module';
-export class UI_Module implements ModuleObj{
+import { Module } from './Module';
+import {Modularable } from './models/index';
+export class Module_Survey implements Modularable{
   public module:Module;
      
     constructor(module:Module){
