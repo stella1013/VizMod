@@ -1,24 +1,45 @@
 import { Module } from './Module';
+import { Module_Survey } from './Module_Survey';
+import { ModuleType } from './models/index';
 
-export class ModuleList{
-    private listOfModules:Module[] = [];
-    private xhttp:XMLHttpRequest;
+export class ModuleList {
+    private listOfModules: Module[];
+    constructor(subMenu: NodeList) {
+        this.listOfModules = [];
+        this.configure(subMenu);
+        this.renderContent();
 
-    constructor(){
-        this.xhttp = new XMLHttpRequest();
-        this.xhttp.onreadystatechange = () => {
-            if (this.xhttp.readyState == 4 && this.xhttp.status == 200) {
-            this.render(this.xhttp);
-            }
-        };
-        this.xhttp.open("GET", "build.xml", true);
-        this.xhttp.send();
-        
     }
     
-    render = (xml:any) => {
-        var xmlDoc = xml.responseXML;
-        //let text = xmlDoc.getElementsByTagName("title")[0].childNodes[0].nodeValue;
-        console.log(xml);
+    configure = (nodeChilds:NodeList) => {
+        nodeChilds.forEach((nodeChild:Node) => {
+          if(nodeChild.nodeName === 'module'){
+            let el:Element = nodeChild as Element;
+            if(el.getAttribute('template') === 'Survey'){
+              let elId:string = el.getAttribute('id')!;
+              let elTitle:string = el.querySelector('label')!.innerHTML;
+              let moduleItem:Module = new Module(elId, elTitle, 'desc here', './assets/icons/Feedback_2x2.png', ModuleType.Survey);
+              this.listOfModules.push(moduleItem);
+            }
+            console.log(nodeChild);
+             
+           
+          }
+             
+          });
+        this.renderModuleLists();
+    }
+    renderModuleLists = () => {
+      this.listOfModules.forEach(module => {
+        let El:HTMLDivElement = document.createElement('div');
+        El.id = module.id;
+        let ElTitle:HTMLDivElement = document.createElement('div');
+        ElTitle.innerHTML = module.title;
+        El.appendChild(ElTitle);
+        document.body.appendChild(El);
+      })
+    }
+    renderContent = () => {
+
     }
 } 

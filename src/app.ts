@@ -1,9 +1,31 @@
-import { Module } from './Module';
-import { Module_Survey } from './Module_Survey';
-import { ModuleType} from './models/index';
-import './sass/main';
-//let app:HTMLDivElement = document.getElementById('app') as HTMLDivElement;
 
-let moduleItem = new Module('1', 'My Basic Module', 'desc here', './assets/icons/Feedback_2x2.png', ModuleType.Survey);
-new Module_Survey(moduleItem);
-//app!.append(mod);
+import './sass/main';
+import { xml } from './build';
+import { ModuleList } from './ModuleList';
+
+export class App {
+  private modlists: ModuleList[];
+
+  constructor() {
+    this.modlists = [];
+    this.getModuleLists(this.parseXml(xml));
+  }
+  parseXml = (xmlStr: any): Document => {
+    return new DOMParser().parseFromString(xmlStr, "application/xml");
+  }
+
+  getModuleLists = (xml: Document) => {
+    let lists: NodeList = xml.querySelectorAll('module[type="SubMenu"]');
+    lists.forEach((modEl: Node) => {
+      console.log(modEl.childNodes);
+      new ModuleList(modEl.childNodes);
+     // console.log(modEl.childNodes);
+    });
+   
+  }
+ 
+  renderContent = () => {
+
+  }
+}
+new App();
